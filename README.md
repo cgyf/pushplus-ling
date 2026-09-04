@@ -1,0 +1,21 @@
+```
+# pushplus‑ling
+宿州学院通知爬虫，抓取官网通知，通过 PushPlus 推送到微信，自带消息去重。
+
+## ✨功能
+1. 抓取学校通知公告
+2. 格式化消息内容
+3. PushPlus 微信消息推送
+4. 本地JSON记录已推送通知，自动去重，不会重复推送
+5. 完整异常捕获，输出运行日志
+
+## 📂项目文件结构
+```
+
+pushplus‑ling/
+├── config.py          # 配置密钥（PushPlus token）
+├── crawler.py         # 网页爬虫，抓取通知
+├── push_handler.py    # 推送底层逻辑，网络请求全部放这里
+├── main.py            # 主调度：抓取、去重、调用推送
+├── sent.json          # 自动生成，记录已经推送过通知 id
+└── run.log            # 自动生成，运行日志
