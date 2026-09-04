@@ -7,14 +7,11 @@ def crawler_wechat():
         message = format_notices_message(resp)
         result = send_to_wechat(KEY_PASS, "宿州学院通知栏", message)
         if result["code"] == 200:
-            return {"code": 0, "msg": "ok"}
+            return "推送成功"
         else:
-            return {"code": -1, "msg": result["msg"]}
+            return f"推送失败，{result['msg']}"
     except Exception as e:
         print(f"Error occurred: {e}")
 if __name__ == "__main__":
     resp = crawler_wechat()
-    if resp["code"] == 0:
-        print("推送成功")
-    else:
-        print(resp["msg"])
+    print(resp)
