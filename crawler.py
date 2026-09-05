@@ -8,9 +8,10 @@ def fetch_notices():
     try:
         session=requests.session()
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0"
-            "Accept-Language: zh-CN,zh;q=0.9,en;q=0.8"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8"
         }
+
         session.headers.update(headers)
         retry = Retry(
             total=3,
@@ -40,6 +41,7 @@ if __name__ == '__main__':
     print(f"共抓取 {len(res)} 条公告")
     for idx, item in enumerate(res, 1):
         print(f"{idx}. {item['title']} | {item['times']} | {item['url']}")
+
 
 
 
